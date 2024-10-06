@@ -2,8 +2,11 @@ import { useState } from "react";
 import { LogBox, StyleSheet } from "react-native";
 import Screen from "../layout/Screen";
 import ModuleList from "../entity/modules/ModuleList.js";
+import Icons from "../UI/Icons.js";
+import { Button, ButtonTray } from "../UI/Button.js";
 
 import initialModules from "../../data/modules.js";
+import { Button, ButtonTray } from "../UI/Button.js";
 
 const ModuleListScreen = ({ navigation }) => {
   // Initialisations ---------------------
@@ -25,15 +28,27 @@ const ModuleListScreen = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const handleSelect = () =>
+  const handleAdd = (module) => setModules([...modules, module]);
+
+  const onAdd = (module) => {
+    handleAdd(module);
+    navigation.goBack();
+  };
+
+  const gotoViewScreen = () =>
     navigation.navigate("ModuleViewScreen", { module, handleDelete });
+
+  const gotoAddScreen = () => navigation.navigate("ModuleAddScreen", { onAdd });
 };
 
 // View --------------------------------
 
 return (
   <Screen>
-    <ModuleList modules={modules} onSelect={handleSelect} />
+    <ButtonTray>
+      <Button label="Add" icon={<Icons.Add />} onClick={gotoAddScreen} />
+    </ButtonTray>
+    <ModuleList modules={modules} onSelect={gotoViewScreen} />
   </Screen>
 );
 
