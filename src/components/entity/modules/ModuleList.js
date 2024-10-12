@@ -1,5 +1,5 @@
-import { Pressable, StyleSheet, Pressable } from "react-native";
-import ModuleItem from "../entity/modules/ModuleItem.js";
+import { StyleSheet, Pressable } from "react-native";
+import ModuleItem from "../../entity/modules/ModuleItem";
 
 const ModuleList = (modules, onSelect) => {
   // Initialisations ---------------------

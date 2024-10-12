@@ -14,7 +14,7 @@ const defaultModule = {
   ModuleImage: null,
 };
 
-export const ModuleForm = ({ onSubmit, onCancel }) => {
+export const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
   // Initialisations ---------------------
   defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000);
   defaultModule.ModuleImage = "";
@@ -28,7 +28,7 @@ export const ModuleForm = ({ onSubmit, onCancel }) => {
   ];
 
   // State -------------------------------
-  const [module, setModule] = useState(defaultModule);
+  const [module, setModule] = useState(originalModule || defaultModule);
 
   // Handlers ----------------------------
   const handleChange = (field, value) =>
@@ -36,8 +36,8 @@ export const ModuleForm = ({ onSubmit, onCancel }) => {
   const handleSubmit = () => onSubmit(module);
 
   // View --------------------------------
-  const submitLabel = "Add";
-  const submitIcon = <Icons.Add />;
+  const submitLabel = originalModule ? "Modify" : "Add";
+  const submitIcon = originalModule ? <Icons.Edit /> : <Icons.Add />;
 
   return (
     <Form
@@ -89,4 +89,4 @@ export const ModuleForm = ({ onSubmit, onCancel }) => {
 
 const styles = StyleSheet.create({});
 
-export default ModuleAddScreen;
+export default ModuleForm;
