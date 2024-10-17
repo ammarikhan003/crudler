@@ -11,7 +11,7 @@ const defaultModule = {
   ModuleLevel: null,
   ModuleLeaderID: null,
   ModuleLeaderName: null,
-  ModuleImage: null,
+  ModuleImageURL: null,
 };
 
 export const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
@@ -74,8 +74,8 @@ export const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
 
       <Form.InputText
         label="Module Image URL"
-        value={module.ModuleImage}
-        onChange={(value) => handleChange("ModuleImage", value)}
+        value={module.ModuleImageURL}
+        onChange={(value) => handleChange("ModuleImageURL", value)}
       />
 
       <ButtonTray>
