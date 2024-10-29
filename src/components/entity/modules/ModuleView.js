@@ -30,6 +30,7 @@ const ModuleView = ({ module, onDelete, onModify }) => {
           {module.ModuleCode} {module.ModuleName}{" "}
         </Text>
         <Text style={style.text}>Level {module.ModuleLevel}</Text>
+        <Text style={style.text}>Cohort {module.ModuleYearName}</Text>
         <Text style={style.text}>
           {module.ModuleLeaderName}
           <Text style={style.dimText}>(Module Leader)</Text>
